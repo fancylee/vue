@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  src="vue.min.js"></script>
+</head>
+<body>
+    <div id="vue_watch">
+        km:<input type="text" v-model="km"></input>
+       
+        m:<input type="text" v-model="m"></input>
+        <p>{{km}}</p>
+        <p>{{m}}</p>
+        <p id= info></p>
+
+    </div>
+
+    <script>
+     var vue_watch =   new Vue({
+            el:"#vue_watch",
+            data:{
+                km:0,
+                m:0,
+            },
+
+            watch:{
+                 km:function(val){
+                     this.km = val
+                     this.m = val*1000
+                 }, 
+                 m:function(val){
+                     this.m = val
+                     this.km = val/1000
+                 }      
+            }
+
+
+        })
+
+        vue_watch.$watch('km',function(newValue,oldValue){
+            document.getElementById("info").innerText = "修改前值为: " + oldValue + "，修改后值为: " + newValue;
+        })
+
+    </script>
+</body>
+</html>

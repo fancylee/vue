@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+
+    <div id="vue_computed">
+        <button  @click="chang()">button1</button>
+        <br>
+        <button  @click="changwithvalue(message)">button2</button>
+        <br>
+        <input v-model=message></input>
+        <!-- <button @click="set"> button3</button> -->
+        <p>{{get}}</p>
+    </div>
+
+    <script>
+
+        var vue_computed= new Vue({
+            el:"#vue_computed",
+            data:{
+                name:"ljc",
+                url:"www.ljc.com",
+                message:""
+            },
+            computed:{
+                get:function(){
+                    return this.name+this.url
+                },
+               
+            },
+            methods:{
+                chang:function(){
+                    this.name = "xlt"
+                    this.url = "xlt.com"
+                },
+                changwithvalue:function(value){
+                    this.name = value
+                    this.url = value+".com"
+                }
+            }
+        })
+
+    </script>
+    
+</body>
+</html>
