@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div id="vue_score">
+
+        <input v-model="score"></input>
+
+        <p v-if = "score>10">{{getType()}}</p>
+
+    </div>
+    <script>
+        var vue_score = new Vue({
+            el:"#vue_score",
+            data:{
+                score:60,
+                type:"C",
+            },
+
+            methods:{
+                getType:function(){
+                    var score = this.score
+                    if(score >90){
+                        return "A"
+                    }else if(score >80){
+                        return "B"
+                    }else if(score >60){
+                        return "C"
+                    }else{
+                        return "D"
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

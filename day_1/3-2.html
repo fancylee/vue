@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div id="vue_click">
+
+        <p>{{message}}</p>
+        <p>{{message |capitaliize}}</p>
+        <!--它用于监听 DOM 事件：v-on:click-->
+        <button @click="reverseMessage">反转字符串</button>
+        <!--v-model 指令用来在 input、select、textarea、checkbox、radio 等表单控件元素上创建双向数据绑定，根据表单上的值，自动更新绑定的元素的值。-->
+        <input v-model="message"></input>
+    </div>
+
+    <script>
+        var vue_click = new Vue({
+            el:"#vue_click",
+            data:{
+                message:"aaaa"
+            },
+            methods:{
+                reverseMessage:function(){
+                    this.message = this.message.split("").reverse().join('')
+                }
+            },
+            filters:{
+                capitaliize:function(value){
+                    if (!value) return ''
+                    value = value.toString().split()
+                    return value+"dd"
+                }
+            },
+        })
+    </script>
+</body>
+</html>

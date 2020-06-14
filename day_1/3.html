@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.min.js"></script>
+</head>
+
+<style>
+     .class2{
+        background: #fff;
+        color:#000;
+        
+        
+    }
+    .class1{
+        background: #888;
+        color: #ee0;
+        
+    }
+   
+</style>
+<body>
+    <div id="vue_det">
+        <!-- 引用数据 数据绑定最常见的形式就是使用 {{...}}（双大括号）的文本插值：-->
+        <h1>site:{{site}}</h1>
+        <!-- 引用方法-->
+        <h1>{{details()}}</h1>
+
+        <!-- 引用Html  用 v-html 指令用于输出 html 代码：-->
+        <div v-html="url"> </div>
+
+
+    </div>
+
+    <div id="app">
+        <label />修改颜色 </label>
+
+        <input type="checkbox" v-model = "use"/>
+
+        <!-- HTML 属性中的值应使用 v-bind 指令。-->
+        <div class = class2 v-bind:class="{'class1':use}">
+           <h1>1111</h1> 
+        </div>
+        <!--指令是带有 v- 前缀的特殊属性。
+            指令用于在表达式的值改变时，将某些行为应用到 DOM 上。如下例子：-->
+        <h1 v-if = "use">{{use}}</h1>
+        <h1>{{use}}</h1>
+
+    </div>
+
+
+
+    <!-- Vue.js 都提供了完全的 JavaScript 表达式支持。-->
+
+    <div id = "vue_js">
+
+        {{5*10}}<br>
+        {{ok?"YES":"NO"}} <br>
+        {{message.split('').reverse().join('')}}
+        <div  v-bind:class="'class'+id">
+            1111 
+         </div>
+         <a v-bind:href="url" >菜鸟教程</a>
+
+    </div>
+
+   
+
+    <script >
+
+       var  data1= { site:"hello world",url:"www.helloworld.com",alexa:"10000"  };    
+
+       var vm = new Vue({
+            el:'#vue_det',
+            data:{
+                site:"hello world",
+                url:"<a href='http://www.runoob.com'>菜鸟教程</a>",
+                alexa:"10000"    
+            },
+            // data:data1,
+            
+            methods:{
+                details:function(){
+                    return this.site + "- 学的不仅是技术，更是梦想！"
+                }
+            }
+        })
+
+        //
+        var vm1 = new Vue({
+            el:"#app",
+            data:{
+                use:false
+            },
+        })
+
+
+        var vm2 = new Vue({
+            el:"#vue_js",
+            data:{
+               ok:true,
+               message:"nmb",
+               url:"http://www.runoob.com",
+               id:1
+            }
+        })
+
+    </script>
+</body>
+</html>

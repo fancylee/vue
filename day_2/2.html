@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.min.js" ></script>
+</head>
+<body>
+    <div id="vue_for">
+        <ul >
+            <li  v-for="n in 5"> {{n}}</li>
+
+            <li v-for="(value,key,index) in sites">{{value.name}}</li>
+           
+            <li v-for="(value,key,index) in object">{{value +' @ '+ key +" @ " +index}}</li>
+        </ul>
+
+    </div>
+
+    <script>
+
+     var vue_for = new Vue({
+         el:"#vue_for",
+         data:{
+            object: {
+            name: '菜鸟教程',
+            url: 'http://www.runoob.com',
+            slogan: '学的不仅是技术，更是梦想！'
+    },
+    sites: [
+      { name: 'Runoob' },
+      { name: 'Google' },
+      { name: 'Taobao' }
+    ]
+
+         }
+     })
+    </script>
+</body>
+</html>

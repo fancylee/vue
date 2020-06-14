@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div id="vue_det">
+        <h1>site:{{site}}</h1>
+        <h1>url:{{url}}</h1>
+        <h1>{{details()}}</h1>
+
+    </div>
+    <script >
+
+       var  data1= { site:"hello world",url:"www.helloworld.com",alexa:"10000"  };    
+
+       var vm = new Vue({
+            el:'#vue_det',
+            data:{
+                site:"hello world",
+                url:"www.helloworld.com",
+                alexa:"10000"    
+            },
+            // data:data1,
+            
+            methods:{
+                details:function(){
+                    return this.site + "- 学的不仅是技术，更是梦想！"
+                }
+            }
+        })
+
+        vm.site = "http:wwww"
+        // data1.url="111";
+
+
+    </script>
+</body>
+</html>
