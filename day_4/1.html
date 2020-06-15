@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- tsx -->
+    <div id="app">
+      <!--注册一个简单的全局组件 runoob，并使用它：-->
+      <component1></component1>
+      <runoob></runoob>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+      Vue.component("component1", {
+        template: "<h1>自定义组件</h1>",
+      });
+      var Child = {
+        template: "<h3>自定义组件</h3>",
+      };
+      var app = new Vue({
+        el: "#app",
+        data: {
+          message: "您好啊",
+        },
+        components: {
+          runoob: Child,
+        },
+      });
+    </script>
+  </body>
+</html>
