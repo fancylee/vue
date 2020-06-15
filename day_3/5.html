@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- tsx -->
+    <div id="app">
+      <p>input 元素</p>
+      <input v-model= "message" placeholder="编辑我..." ></input>
+    <p>{{message}}</p>
+
+    <textarea v-model="message2" placeholder="请输入"></textarea>
+     <p>{{message2}}</p>
+
+     <input type="number" v-model.num = "age" ></input>
+     <p>年龄是：{{age}}</p>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          message: "您好啊",
+          message2:"焦宇\r\n是沙雕",
+          age:10,
+        },
+      });
+    </script>
+  </body>
+</html>

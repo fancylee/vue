@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- tsx -->
+    <div id="app">
+    <input  type="radio" value="Java" v-model="picked"></input> <label>Java</label>
+    <br/>
+    <input  type="radio" value="Kotlin" v-model="picked"></input> <label>Kotlin</label>
+    <p>{{picked}}</p>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+    var app = new Vue({
+    el:'#app',
+    data:{
+    message:'您好啊',
+    picked:"Java"
+    }
+    })
+    </script>
+</body>
+</html>

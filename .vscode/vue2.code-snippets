@@ -1,0 +1,21 @@
+{
+  "Print to console": {
+    "prefix": "vue",
+    "body": [
+      "<!-- tsx -->",
+      "<div id=\"app\">",
+      "{{message}}",
+      "</div>",
+      "<script src=\"../js/vue.js\"></script>",
+      "<script>",
+      "var app = new Vue({",
+      "el:'#app',",
+      "data:{",
+      "message:'您好啊'",
+      "}",
+      "})",
+      "</script>"
+    ],
+    "description": "Log output to console"
+  }
+}

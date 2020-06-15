@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- tsx -->
+    <div id="app">
+    <p>单个复选框</p>
+    <input type="checkbox"  v-model ="checked"></input><label>checked</label>
+    <p>{{checked}}</p>
+    <p>多个复选框</p>
+     <input type="checkbox" id="id1" value="Android" v-model ="checkedNames"></input><label>Android</label>
+     <input type="checkbox" id="id2" value="IOS " v-model ="checkedNames"></input><label>IOS</label>
+     <input type="checkbox" id="id3" value="Chrome " v-model ="checkedNames"></input><label>Chrome</label>
+      <p>选择的值为：{{checkedNames}}</p>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+    var app = new Vue({
+    el:'#app',
+    data:{
+    message:'您好啊',
+    checked:false,
+    checkedNames:[]
+    }
+    })
+    </script>
+</body>
+</html>

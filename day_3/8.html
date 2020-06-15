@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- tsx -->
+    <div id="app">
+      <select v-model="selected">
+        <option value="">请选择一种语言</option>
+        <option value="Android">Android</option>
+        <option value="Kotlin">Kotlin</option>
+        <option value="IOS">IOS</option>
+      </select>
+      <p>被选中的语言{{selected}}</p>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          message: "您好啊",
+          selected: "",
+        },
+      });
+    </script>
+  </body>
+</html>

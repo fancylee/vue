@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .active {
+        width: 100px;
+        height: 100px;
+        background: green;
+      }
+      .text_danger {
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div v-bind:class="{active:isActive,text_danger:hasError}"></div>
+      <br />
+      <div v-bind:class="classObject"></div>
+      <br />
+      <div v-bind:class="classObject1"></div>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          isActive: true,
+          hasError: false,
+
+          classObject: {
+            active: false,
+            text_danger: true,
+          },
+        },
+        computed: {
+          classObject1: function () {
+            return {
+              active: true,
+              text_danger: this.hasError,
+            };
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

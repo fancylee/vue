@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- tsx -->
+    <div id="app">
+      <button @click="count+=1">增加1</button>
+      <button @click="clear()">清零</button>
+      <p>按钮被点击了{{count}}次</p>
+      <br />
+      <button @click="greet">Greet</button>
+      <br />
+      <button @click="say('hi')">Say Hi</button>
+      <br />
+      <button @click="say('what')">Say What</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          count: 0,
+        },
+        methods: {
+          clear: function () {
+            this.count = 0;
+          },
+          say: function (value) {
+            alert(value);
+          },
+
+          greet: function (event) {
+            alert("hello" + this.count + "!");
+            if (event) {
+              alert(event.target.tagName);
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

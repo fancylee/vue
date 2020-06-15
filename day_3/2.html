@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <style>
+      .active {
+        width: 100px;
+        height: 100px;
+        background: green;
+      }
+
+      .text-danger {
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div v-bind:class="classObject"></div>
+      <br />
+      //数组的形式引入
+      <div v-bind:class="[activeClass,errorClass]"></div>
+      <br />
+      //三元表达式的导入
+      <div v-bind:class="[activeClass,isActive?'':errorClass]"></div>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          isActive: true,
+          error: {
+            value: true,
+            type: "fatal",
+          },
+          activeClass: "active",
+          errorClass: "text-danger",
+        },
+        computed: {
+          classObject: function () {
+            return {
+              active: this.isActive && !this.error.value,
+              "text-danger": this.error.value && this.error.type === "fatal",
+            };
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
