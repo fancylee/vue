@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- tsx -->
+    <div id="app">
+    {{message}}
+    <br>
+    {{total}}
+    <br/>
+    <counter v-on:buttonclick="incrementTotal"></counter>
+    <counter v-on:buttonclick="incrementTotal"></counter>
+    <counter v-on:buttonclick="incrementTotal"></counter>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+
+    var buttoncounter2Data ={
+        counterindex :0
+    }    
+    var countButton = {
+        
+       template:'<button v-on:click="increase">{{counterindex}}</button>',
+
+       data:function(){
+           return{
+               counterindex :0
+           }
+        return buttoncounter2Data
+       },
+       methods:{
+        increase:function(){
+                this.counterindex +=1
+                this.$emit('buttonclick')
+            
+        }
+       },
+    } 
+    var app = new Vue({
+    el:'#app',
+    data:{
+    message:'您好啊',
+    total:0
+    
+    },
+    methods:{
+        incrementTotal:function(){
+            this.total +=1
+        }
+    },
+    components:{
+        counter:countButton
+    }
+    })
+    </script>
+</body>
+</html>

@@ -10,23 +10,45 @@
     <div id="app">
       <!--注册一个简单的全局组件 runoob，并使用它：-->
       <component1></component1>
+      <component2 message="hello"></component2>
+      
       <runoob></runoob>
+
+      <input v-model="message"></input>
+      <component2 v-bind:message="message"></component2>
+
+      <runoobs v-for="site in sites" v-bind:todo="site.text"></runoobs>
     </div>
     <script src="../js/vue.js"></script>
     <script>
       Vue.component("component1", {
         template: "<h1>自定义组件</h1>",
       });
+      Vue.component("component2",{
+        props:['message'],
+        template:"<span>{{message}}</span>"
+      })
+      
       var Child = {
         template: "<h3>自定义组件</h3>",
       };
+      var Childs={
+        props:['todo'],
+        template:"<li>{{todo}}</li>"
+      }
       var app = new Vue({
         el: "#app",
         data: {
           message: "您好啊",
+          sites:[
+            {text:"Android"},
+            {text:"IOS"},
+            {text:"WEB"}
+          ]
         },
         components: {
           runoob: Child,
+          runoobs:Childs
         },
       });
     </script>

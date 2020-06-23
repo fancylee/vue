@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- tsx -->
+    <div id="app">
+    {{message}}
+    <input v-focus></input>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+    var app = new Vue({
+    el:'#app',
+    data:{
+    message:'您好啊'
+    }
+    })
+    Vue.directive('focus',{
+        inserted:function(el){
+            el.focus()
+        }
+    })
+    </script>
+</body>
+</html>
